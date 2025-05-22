@@ -1,21 +1,19 @@
 let sentimentModel;
 
-// Krijo modelin dhe ruaje
 sentimentModel = ml5.sentiment('movieReviews');
 
-// Vendos një flag kur modeli të jetë gati
 let modelReady = false;
 
-// Kontrollo nëse është gati
+
 const interval = setInterval(() => {
   if (sentimentModel && sentimentModel.predict) {
     modelReady = true;
     console.log("✅ Modeli u ngarkua me sukses!");
     clearInterval(interval);
   }
-}, 100); // kontrollo çdo 100ms
+}, 100);
 
-// Funksioni për analizë
+
 async function analyze() {
   const text = document.getElementById('inputText').value;
 
